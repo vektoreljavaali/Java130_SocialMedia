@@ -27,8 +27,12 @@ public class User {
     String username;
     String borndate;
     String email;
+    String password;
     String phone;
     String avatar;
+    String gender;
+    String city;
+    String country;
     String phonetoken;
     long createprofile;
 
