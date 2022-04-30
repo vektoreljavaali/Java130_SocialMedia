@@ -26,7 +26,9 @@ public class PostService {
     public List<Post> findAll(){
         return repository.findAll();
     }
-
+    public List<Post> findByUserid(long id){
+        return repository.findByUseridOrderBySharedtimeDesc(id);
+    }
     /**
      * Optional -> içerisinde bulunan varlığın değerinin analizini ve
      * kullanacaklar için tutarlılığını kontrol eder. bazen kullanmakta

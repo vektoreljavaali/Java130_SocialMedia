@@ -1,20 +1,20 @@
 package com.vektorel.VektorelSocialMedia.model;
 
+import com.vektorel.VektorelSocialMedia.repository.entity.Post;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
+import java.util.List;
+
 @Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ModelLogin {
-    String title;
+public class ModelHome {
     String username;
-    String password;
-    String loginbutton;
-    String tabregister;
-    String tablogin;
-    boolean error;
+    String userid;
+    String followercount;
+    List<Post> postlist;
 }

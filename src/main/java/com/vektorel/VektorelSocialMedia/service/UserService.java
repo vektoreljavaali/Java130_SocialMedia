@@ -26,7 +26,9 @@ public class UserService {
     public List<User> findAll(){
         return repository.findAll();
     }
-
+    public Optional<User> findByUsernameAndPassword(String username, String password){
+        return repository.findOptionalByUsernameAndPassword(username, password);
+    }
     /**
      * Optional -> içerisinde bulunan varlığın değerinin analizini ve
      * kullanacaklar için tutarlılığını kontrol eder. bazen kullanmakta

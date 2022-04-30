@@ -19,10 +19,14 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     long userid;
+    String userphoto;
+    String username;
     long sharedtime;
+    @Column(length = 5000)
     String content;
     String url;
     int likecount;
+    int dislike;
     int commentcount;
 
 }
