@@ -18,6 +18,8 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
     long userid;
+    String avatar;
+    String username;
     long postid;
     String comment;
     long createtime;

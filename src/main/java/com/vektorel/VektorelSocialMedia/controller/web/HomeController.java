@@ -1,5 +1,6 @@
 package com.vektorel.VektorelSocialMedia.controller.web;
 
+import com.vektorel.VektorelSocialMedia.dto.response.PagePostDto;
 import com.vektorel.VektorelSocialMedia.model.ModelHome;
 import com.vektorel.VektorelSocialMedia.repository.PostRepository;
 import com.vektorel.VektorelSocialMedia.repository.entity.Post;
@@ -29,10 +30,12 @@ public class HomeController {
         if(user==null)
             return "redirect:/login";
         ModelAndView modelAndView = new ModelAndView();
-        List<Post> postList = postService.findByUserid(user.getId());
+        List<PagePostDto> postList = postService.findByUserid(user.getId());
         modelAndView.addObject("model",
                 ModelHome.builder()
                         .followercount("123")
+                        .userid(user.getId())
+                        .avatar(user.getAvatar())
                         .username(user.getUsername())
                         .postlist(postList)
                         .build());
