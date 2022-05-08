@@ -7,28 +7,16 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+@Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Builder
-@Table(name = "tblpost")
+@Table(name="tblliketopost")
 @Entity
-public class Post {
-
+public class LikeToPost {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
-    long userid;
-    String userphoto;
-    String username;
-    long sharedtime;
-    @Column(length = 5000)
-    String content;
-    String url;
-    int likecount;
-    int dislike;
-    int commentcount;
-    boolean islike;
-    boolean isdislike;
-
+    long userId;
+    long postId;
 }

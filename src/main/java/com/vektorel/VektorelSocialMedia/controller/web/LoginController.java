@@ -100,7 +100,7 @@ public class LoginController {
                            int day, int month, int year,boolean gender,
                            String city, String country){
         userService.save(User.builder()
-                        .avatar("")
+                        .avatar("images/users/avatar.jpg")
                         .borndate(year+"")
                         .createprofile(new Date().getTime())
                         .email(email)

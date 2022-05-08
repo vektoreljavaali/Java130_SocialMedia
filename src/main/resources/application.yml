@@ -6,9 +6,18 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/SocialMedia
     username: postgres
-    password: 123
+    password: root
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+  cloud:
+    gcp:
+      project-id: endless-gamma-191414
+      credentials:
+        scopes: https://www.googleapis.com/auth/devstorage.read_write
 
+myproject:
+  google:
+    storage:
+      bucketname: java130post

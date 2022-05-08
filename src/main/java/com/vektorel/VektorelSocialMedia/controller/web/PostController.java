@@ -55,20 +55,20 @@ public class PostController {
          * Yeni bir boş dosya oluşturdum.
          */
         try{
-            String resimurl = "d:/Muhammet_Hoca/Resimlerim/"+resim_id+".png";
-            File file = new File(resimurl);
-            image.transferTo(file);
-            Post post = Post.builder()
-                    .userid(userid)
-                    .content(content)
-                    .dislike(0)
-                    .likecount(0)
-                    .sharedtime(new Date().getTime()) //şuanın long değeri
-                    .username(user.isPresent() ? user.get().getUsername() : "")
-                    .userphoto(user.isPresent() ? user.get().getAvatar() : "/images/user-1.jpg")
-                    .commentcount(0)
-                    .url(resimurl).build();
-            postService.save(post);
+            Optional<String> resimurl = postService.uploadFile(image);
+            if(resimurl.isPresent()){
+                Post post = Post.builder()
+                        .userid(userid)
+                        .content(content)
+                        .dislike(0)
+                        .likecount(0)
+                        .sharedtime(new Date().getTime()) //şuanın long değeri
+                        .username(user.isPresent() ? user.get().getUsername() : "")
+                        .userphoto(user.isPresent() ? user.get().getAvatar() : "/images/user-1.jpg")
+                        .commentcount(0)
+                        .url(resimurl.get()).build();
+                postService.save(post);
+            }
             return "redirect:/home";
         }catch (Exception ex){
             ModelAndView modelAndView = new ModelAndView("index");
@@ -92,6 +92,16 @@ public class PostController {
                 .build();
         commentService.save(commentLocal);
         return "redirect:/home";
+    }
+
+    public void Like(long userid, long postid){
+        /**
+         * Daha önce like etmiş mi?
+         * Daha önce dis like etmiş mi?
+         * Eğer dislike var ise onu eksilt, like arttır.
+         * eğer daha önveden like yapmamış ise like sayısını arttır.
+         */
+
     }
 
 }

@@ -35,7 +35,10 @@ public class HomeController {
                 ModelHome.builder()
                         .followercount("123")
                         .userid(user.getId())
-                        .avatar(user.getAvatar())
+                        .avatar(user.getAvatar()== null
+                        ? "images/users/avatar.jpg"
+                        : user.getAvatar().isEmpty() 
+                        ? "images/users/avatar.jpg" : user.getAvatar())
                         .username(user.getUsername())
                         .postlist(postList)
                         .build());
