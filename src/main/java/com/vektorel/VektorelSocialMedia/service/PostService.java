@@ -86,6 +86,75 @@ public class PostService {
     public Optional<Post> findById(long id){
         return repository.findById(id);
     }
+    public boolean like(long userid,long postid){
+        try {
+            Optional<LikeToPost> likeToPost =
+                    likeToPostRepository.findOptionalByPostIdAndUserId(postid,userid);
+            Optional<DislikeToPost> dislikeToPost =
+                    dislikeToPostRepository.findOptionalByPostIdAndUserId(postid,userid);
+            Post post = repository.findById(postid).get();
+            if(likeToPost.isEmpty()){
+                if(dislikeToPost.isPresent()){
+                    dislikeToPostRepository.delete(dislikeToPost.get());
+                    post.setDislike(post.getDislike()-1);
+                }
+                likeToPostRepository.save(LikeToPost
+                        .builder()
+                        .postId(postid)
+                        .userId(userid)
+                        .build());
+                post.setLikecount(post.getLikecount()+1);
+                repository.save(post);
+                return true;
+            }else{
+                likeToPostRepository.delete(likeToPost.get());
+                post.setLikecount(post.getLikecount()-1);
+                repository.save(post);
+                return true;
+            }
+
+        }catch (Exception e){
+            return false;
+        }
+
+    }
+    public boolean dislike(long userid,long postid){
+        try {
+            Optional<LikeToPost> likeToPost =
+                    likeToPostRepository.findOptionalByPostIdAndUserId(postid,userid);
+            Optional<DislikeToPost> dislikeToPost =
+                    dislikeToPostRepository.findOptionalByPostIdAndUserId(postid,userid);
+            Post post = repository.findById(postid).get();
+
+            if(dislikeToPost.isEmpty()){
+                if(likeToPost.isPresent()){
+                    likeToPostRepository.delete(likeToPost.get());
+                    post.setLikecount(post.getLikecount()-1);
+                }
+                dislikeToPostRepository.save(DislikeToPost
+                        .builder()
+                        .postId(postid)
+                        .userId(userid)
+                        .build());
+                post.setDislike(post.getDislike()+1);
+                repository.save(post);
+                return true;
+            }else{
+                dislikeToPostRepository.delete(dislikeToPost.get());
+                post.setDislike(post.getDislike()-1);
+                repository.save(post);
+                return true;
+            }
+
+        }catch (Exception e){
+            return false;
+        }
+
+    }
+
+
+
+
 
     public Optional<String> uploadFile(MultipartFile file){
             try {

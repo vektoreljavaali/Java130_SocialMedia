@@ -193,11 +193,58 @@
                     <div class="post-detail">
                         <div class="user-info">
                             <h5><a href="timeline.html" class="profile-link"><label th:text="${ls.post.username}"/></a> <span class="following">following</span></h5>
-                            <p class="text-muted">Published a photo about <label th:text="${ls.post.sharedtime}"/> mins ago</p>
+                            <script th:inline="javascript">
+                                function getShareTime() {
+                                    try {
+
+                                        var dtime =  document.getElementById("t1");
+
+                                        let time = parseInt(dtime.innerText);
+
+                                        let difference = new Date().getTime() - new Date(time).getTime();
+
+                                        let daysDifference = Math.floor(difference / 1000 / 60 / 60 / 24);
+                                        difference -= daysDifference * 1000 * 60 * 60 * 24;
+
+                                        let hoursDifference = Math.floor(difference / 1000 / 60 / 60);
+                                        difference -= hoursDifference * 1000 * 60 * 60;
+
+                                        let minutesDifference = Math.floor(difference / 1000 / 60);
+                                        difference -= minutesDifference * 1000 * 60;
+
+                                        let secondsDifference = Math.floor(difference / 1000);
+                                        let result;
+                                        if (daysDifference > 0) {
+                                            if (daysDifference > 7) {
+                                                result = moment(new Date(time)).format('DD-MM-YYYY');
+                                            } else {
+                                                result = daysDifference + ' gün önce';
+                                            }
+                                        } else if (hoursDifference > 0) {
+                                            result = hoursDifference + ' saat önce';
+                                        } else if (minutesDifference > 0) {
+                                            result = minutesDifference + ' dakika önce';
+                                        } else if (secondsDifference < 60) {
+                                            result = 'az önce';
+                                        } else {
+                                            result = secondsDifference + ' saniye önce';
+                                        }
+
+                                         dtime.innerText = result;
+                                    } catch (error) {
+                                        return '';
+                                    }
+                                }
+                            </script>
+                            <p class="text-muted">Published a photo about
+                                <label id="t1" th:text="${ls.post.sharedtime}"/>
+
+                            </p>
+                            <button onclick="getShareTime()">hesapla</button>
                         </div>
                         <div class="reaction">
-                            <a class="btn text-green"><i class="icon ion-thumbsup"></i> <label th:text="${ls.post.likecount}"/></a>
-                            <a class="btn text-red"><i class="fa fa-thumbs-down"></i>  <label th:text="${ls.post.dislike}"/></a>
+                            <a th:attr="onclick=|like('${model.userid}','${ls.post.id}')|, class=|${ls.post.islike==true ? 'btn text-green' : 'btn text-grey'}|"><i class="icon ion-thumbsup"></i> <label th:text="${ls.post.likecount}"/></a>
+                            <a th:attr="onclick=|dislike('${model.userid}','${ls.post.id}')|, class=|${ls.post.isdislike==true ? 'btn text-danger' : 'btn text-grey'}|"><i class="fa fa-thumbs-down"></i>  <label th:text="${ls.post.dislike}"/></a>
                         </div>
                         <div class="line-divider"></div>
                         <div class="post-text">
@@ -357,6 +404,42 @@
 <script src="js/jquery.sticky-kit.min.js"></script>
 <script src="js/jquery.scrollbar.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+    function like(userid,postid) {
+        $.ajax({
+            url: "http://localhost:9090/post/like",
+            method: "POST",
+            data: {
+                userid: userid,
+                postid: postid
+            },
+            success: function (data) {
+                alert(data);
+
+            },
+            error: function (data) {
+                alert(data);
+            }
+        });
+    }
+    function dislike(userid,postid) {
+            $.ajax({
+                url: "http://localhost:9090/post/dislike",
+                method: "POST",
+                data: {
+                    userid: userid,
+                    postid: postid
+                },
+                success: function (data) {
+                    alert(data);
+                },
+                error: function (data) {
+                    alert(data);
+                }
+            });
+        }
+
+</script>
 </body>
 
 <!-- Mirrored from themified.com/friend-finder/newsfeed.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Feb 2022 20:09:55 GMT -->

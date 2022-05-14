@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "endless-gamma-191414",
+  "private_key_id": "2f6605e638590c8b8cc525ae5b41f4e9e8c0748a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCUDWmNBp7rL1vX\nX8VRalDBh2paI3tQbhLnAuk5Ldhq1953IbU/B+6guZyq/INq5s01dbnm8P2qoGWV\n4jcmQj60GjxYudGWdbWeC7eykSYdXOGfd5Oq1jpkzRVXDVINZHh69JrzqIXdcJML\nF2x5EqPBgL4Ahqrz5cpARbHamtMOiano0FxYsUpqb6rBBo8zaztWs+xxRXxBXm6v\nSrfdTobrButVvbAyqC0nE1P9wt3HZ1tOzwq2eQpgHVn+wMumlRqHzxoe+cMzSPr+\nc9XfHk2pFrkdoRDS/qIJ3BHViNwvigsCUwUkAzOnfQ7toGFjzAQTc/44HqaIAi/Y\natO8HxHlAgMBAAECggEAGnvxu0AJcqHUqIjhx8ggbRY3wKsjNoaSTA/Zv5hDZA18\npsv5W66kEc1SSMYGDjv+TodiO301q22o7nB6lBX6mIYu8GJBK0ygMgb/k+piKpOA\nauHdoQxUgs6q+BkSagHkiX4zL84gMDYgn7XPejMK5yUMGBT/BMVA8lFlWOkkQy+4\ncIho3ePI2JQGqPcSpbCPKa2E5O0pzUZTiusHVpJFBoqil05lDShVx1EePZAAIBDn\n9qbkXBmEhe/5cyrKKEFcF/tihHfsBAArHC53Q6gu9W9h1yLLPM1JCYMPpF9GQ2tp\nshJNG/+TuRf7GBIWIOW0l1laq5Qk0Ml1etwHP1HlewKBgQDHeJ7tTgYx0UOzbqfD\nr6Y97V4xsl8oiJQfP1HjyMhGT15i7ZtJm+swcH7E81c1tUzYn31nislSTDUC7Fh0\ntADaqRluOy6BkYAXCuDa77lEy5mxeFCEJsiR7K3Ezo4Z6f9wv6+do1Tn+vV9bK4U\nJChulrrJaDrfrFMz+BfU5qZ0cwKBgQC+AmylRBscshcH11w81yAxdBtyQrx48YeS\nMnUBxVUCTUA9KNd2BqytPGsZ1yHd8JsPq7rd/MX9VUk7Jp94PH7Gz9x/KTamBuI1\nGV8WRZAEaG/5/2BUQYzmNAqgrGG8nJxMbKxwzzNlIa2G6XDnw46Lc7/22j6K3SmU\nOPKHy6yiRwKBgQCplSXgcDYaAmRBVzEvz9RQz84GCDSYfE0Zp7aSJnAGPpHrH0Cn\nOvSfsPRFsvAQzDsx654s+jQgUIO9IXwuc55KR/tD2PK32yB/9pKl76qeD05yL+yb\n/XEFhqdRK55p76Nokr7WETctJhGxeUUiAH+TTXgtpPxwjswJ4cE5EoKvewKBgAwW\nSWUF/ReJOK/WAlcYdELRGQHevvCOpMonDYxsSikYUvLRC0vFxuxKQKHnLo9Yw/Ru\nPzfp4YppB3yMy24xovrwtB0euQw8ud0Y3RSknjG5lw33MeCKPvVR8C8iaCFAcSzn\naNzQQXu4dbp0VStZJFM4rMh+P6ZDxWZZbQw4Z6X3AoGBAJCVoww7mzTMIFq/Gssa\nQk6O6pNFa61sAXLy5AOt+aLV7TkAmZLk0bcbqZpqcfSQTkVmy8uPwcvgy5OlKYCw\nH2zQdb0I28SeRI0kbPf5nRFi06XMXx2Vo5boQ/oXA+aZeoagBLKPG9KbkVih2ENz\npfLlg0Vutg2lSWLdxCbU7u92\n-----END PRIVATE KEY-----\n",
+  "client_email": "java63admin@endless-gamma-191414.iam.gserviceaccount.com",
+  "client_id": "110578237624422246571",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/java63admin%40endless-gamma-191414.iam.gserviceaccount.com"
+}

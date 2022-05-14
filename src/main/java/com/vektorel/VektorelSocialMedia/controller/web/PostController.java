@@ -7,6 +7,7 @@ import com.vektorel.VektorelSocialMedia.service.CommentService;
 import com.vektorel.VektorelSocialMedia.service.PostService;
 import com.vektorel.VektorelSocialMedia.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -94,14 +95,21 @@ public class PostController {
         return "redirect:/home";
     }
 
-    public void Like(long userid, long postid){
+    @PostMapping("/like")
+    public ResponseEntity<Boolean> Like(long userid, long postid){
         /**
          * Daha önce like etmiş mi?
-         * Daha önce dis like etmiş mi?
+         * Daha önce unlike etmiş mi?
          * Eğer dislike var ise onu eksilt, like arttır.
          * eğer daha önveden like yapmamış ise like sayısını arttır.
          */
-
+       boolean state = postService.like(userid, postid);
+       return ResponseEntity.ok(state);
     }
 
+    @PostMapping("/dislike")
+    public ResponseEntity<Boolean> Dislike(long userid, long postid){
+       boolean state = postService.dislike(userid, postid);
+       return ResponseEntity.ok(state);
+    }
 }
